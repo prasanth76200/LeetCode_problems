@@ -7,9 +7,7 @@ class Solution {
             
           current+=gain[i];
             
-          if(current>max){
-              max=current;
-          }
+        max=Math.max(current,max);
             
         }  
      return max;
