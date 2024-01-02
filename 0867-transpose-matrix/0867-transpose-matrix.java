@@ -4,7 +4,7 @@ class Solution {
         int row = matrix.length;
         int col= matrix[0].length;
         
-        int [][]ans = new int [col][row];
+        int [][]ans=new int [col][row];
         
         for(int i=0; i<row; i++){
             
