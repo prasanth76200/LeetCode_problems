@@ -1,17 +1,32 @@
 class Solution {
     public int missingNumber(int[] nums) {
-        int n = nums.length;
-        
-        // Calculate the expected sum of numbers from 0 to n
-        int expectedSum = n * (n + 1) / 2;
-        
-        // Calculate the actual sum of the elements in the array
-        int actualSum = 0;
-        for (int num : nums) {
-            actualSum += num;
+        // i want to go cyclic sort method
+       int i=0;
+        while(i<nums.length){
+            int correct = nums[i];
+            
+            if(nums[i]<nums.length && nums[i]!=nums[correct]){
+                swap(nums,i,correct);
+            }
+            else{
+                i++;
+            }
         }
-        
-        // The missing number is the difference between the expected sum and the actual sum
-        return expectedSum - actualSum;
+            for(int j=0; j<nums.length; j++){
+                
+                if(nums[j]!=j){
+                    return j;
+                }
+              }
+            return nums.length;
+          
+             }
+         
+    
+    public void swap(int[] nums, int first,int second){
+
+        int temp=nums[first];
+        nums[first]=nums[second];
+        nums[second]=temp;
     }
 }
