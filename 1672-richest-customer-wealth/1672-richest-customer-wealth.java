@@ -1,16 +1,16 @@
 class Solution {
     public int maximumWealth(int[][] accounts) {
-        int ans = 0;
-        for (int row = 0; row < accounts.length; row++) {
-            int currentCustomerWealth = 0; 
-            for (int col = 0; col < accounts[row].length; col++) {
-                currentCustomerWealth += accounts[row][col];
+        int maxWealth=0;
+        for(int[] cust:accounts){
+            
+            int wealth=0;
+            
+            for(int acc:cust){
+                wealth+=acc;
             }
-            if(ans<=currentCustomerWealth){
-                ans=currentCustomerWealth;
-                
-            }
+            
+           maxWealth= Math.max(wealth,maxWealth);
         }
-        return ans;
+        return maxWealth;
     }
 }
