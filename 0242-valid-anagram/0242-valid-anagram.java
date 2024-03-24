@@ -1,29 +1,9 @@
-
-class Solution {
+public class Solution {
     public boolean isAnagram(String s, String t) {
-        if (s.length() != t.length()) {
-            return false; // Anagrams must have the same length
-        }
-        
-        Map<Character, Integer> letterCount = new HashMap<>();
-        
-       
-        for (char a : s.toCharArray()) {
-            letterCount.put(a, letterCount.getOrDefault(a, 0) + 1);
-        }
-        
-        for(char b : t.toCharArray()){
-            if(!letterCount.containsKey(b)){
-                return false;
-            }
-            letterCount.put(b, letterCount.get(b)-1);
-            
-            if(letterCount.get(b)==0){
-                letterCount.remove(b);
-            }
-            
-        }
-        
-       return letterCount.isEmpty();
+        int[] alphabet = new int[26];
+        for (int i = 0; i < s.length(); i++) alphabet[s.charAt(i) - 'a']++;
+        for (int i = 0; i < t.length(); i++) alphabet[t.charAt(i) - 'a']--;
+        for (int i : alphabet) if (i != 0) return false;
+        return true;
     }
 }
