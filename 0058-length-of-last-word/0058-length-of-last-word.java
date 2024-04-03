@@ -1,15 +1,15 @@
 class Solution {
     public int lengthOfLastWord(String s) {
-        int length=0;
+        int count=0;
         for(int i=s.length()-1;i>=0;i--){
-            
-            if(s.charAt(i)!=' '){
-                length++;
+            char a = s.charAt(i);
+            if(a!=' '){
+                count++;
             }else{
-                if(length>0) return length;
+                if(count>0) return count;
             }
+            
         }
-        return length;
-        
+        return count;
     }
 }
