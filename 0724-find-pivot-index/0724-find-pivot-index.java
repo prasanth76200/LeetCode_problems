@@ -4,14 +4,14 @@ class Solution {
         for(int a:nums){
             sum+=a;
         }
-        int left=0;
+        int leftSum=0;
         for(int i=0;i<nums.length;i++){
-            int rightSum = sum - nums[i] - left;
-            if(left==rightSum){
+            int rightSum = sum-nums[i]-leftSum;
+            if(rightSum==leftSum){
                 return i;
             }
-            left+=nums[i];
+            leftSum+=nums[i];
         }
-        return -1;
+ return -1;       
     }
 }
