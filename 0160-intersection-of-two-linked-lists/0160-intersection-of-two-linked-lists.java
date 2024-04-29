@@ -11,31 +11,36 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-     
-        int listA = getListLength(headA);
-        int listB = getListLength(headB);
+
+       int k = getLength(headA);
+       int z = getLength(headB);
         
-        while(listA > listB){
-            listA--;
-            headA = headA.next;
+        while(k > z){
+            k--;
+            headA=headA.next;
         }
-        while(listB > listA){
-            listB--;
-            headB = headB.next;
+        
+        while(z>k){
+            z--;
+            headB=headB.next;
         }
         
         while(headA!=headB){
-            headA = headA.next;
-            headB = headB.next;
+            headA=headA.next;
+            headB=headB.next;
         }
         return headA;
+      
+        
     }
-    private int getListLength(ListNode head){
+    private int getLength(ListNode head){
         int count=0;
+        
         while(head!=null){
             count++;
-            head = head.next;
+            head=head.next;
         }
         return count;
     }
+    
 }
