@@ -29,7 +29,7 @@ public class Solution {
             headA=headA.next;
             headB=headB.next;
         }
-        return headA;
+        return headB;
       
         
     }
