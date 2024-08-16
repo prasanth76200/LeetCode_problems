@@ -1,22 +1,36 @@
 class Solution {
     public int countStudents(int[] students, int[] sandwiches) {
         
-        Map<Integer, Integer> map = new HashMap<>();
+        // students = [1,1,1,1,0,0]  , sandwiches = 
+        //                        [1,1,1,0,0,0] 
+            // 1-4 -->1
+            // 0-2 --->2
+            // 1+2 =3
         
-        for(int count : students){
-                   map.put(count, map.getOrDefault(count,0)+1);
+        Map<Integer,Integer> map = new HashMap<>();
+        
+    for(int a :students){
+        map.put(a,map.getOrDefault(a,0)+1);
+    }
+      
+    for(int sand : sandwiches){
+        
+        if(map.getOrDefault(sand ,0) ==0){
+            
+            return   map.getOrDefault(1,0)   + map.getOrDefault(0, 0);
+            
+            
+        }else {
+            map.put(sand , map.get(sand) -1);
+            
         }
         
-        for (int sandwich : sandwiches) {
- 
-            if (map.getOrDefault(sandwich, 0) == 0) {
-                return map.getOrDefault(0, 0) + map.getOrDefault(1, 0);
-            }
-         
-            map.put(sandwich, map.get(sandwich) - 1);
-        }
         
-        return 0;
+        
+    }
+        
+        
+        return 0 ;
         
         
     }
