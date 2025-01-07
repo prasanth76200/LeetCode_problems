@@ -1,25 +1,17 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
         
-        Set<Integer> set = new HashSet<>();
+       int curr=Integer.MIN_VALUE;
         
-        for(int a:nums){
-            set.add(a);
-        }
         int p=0;
-        int[] arr = new int[set.size()];
-        for(int num: set){
-            arr[p++]= num;
+        for(int i=0;i<nums.length;i++){
+            if(curr!=nums[i]){
+                nums[p++] = nums[i];
+                curr = nums[i];
+            }
+          
         }
-        Arrays.sort(arr);
-         int g=0;
-        // int[] arr = new arr[set.size()];
-        for(int num2: arr){
-            nums[g++]= num2;
-        }
-        
         
         return p;
-        
     }
 }
